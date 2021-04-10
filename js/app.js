@@ -12,7 +12,6 @@
  * JS Standard: ESlint
  * 
 */
-
 /**
  * Define Global Variables
  *  
@@ -28,21 +27,13 @@ const navItemLink = document.querySelector('navItem-Link');
 * 
 */
 //Determine if an element is in viewport
-
-
-
-
-
 /** * 
 * End Helper Functions
 * Begin Main Functions
 * 
 */
-
 // build the nav
-
 function buildNav() {
-
     for (const section of sections) {
         // create the <li> element
         const navItem = document.createElement('li');
@@ -56,22 +47,14 @@ function buildNav() {
         navItem.appendChild(navItemLink);
         navbarlist.appendChild(navItem);
         
-        
-        navItemLink.addEventListener("clickclick", (scroll) => {
-            navItemLink.scrollIntoView({
+        //SrcollTo function to view section
+        navItemLink.addEventListener("click", (scroll) => {
+            section.scrollIntoView({
             behavior : "smooth",
             });
         });
     }
 }
-
-
-function checkView(section){
-    let position = section.getBoundingClientRect();
-    return(position.top <= 200 && position.bottom >= 200)
-}
-
-
 // Actice class when near top of viewport
 function active() {
     for (section of sections) {
@@ -85,16 +68,6 @@ function active() {
                 navItemLink.classList.remove("menu__link__active");
             }
         }
-    }
-
-
-
-    function smoothScroll(event) {
-        const targetId = event.currentTarget.getAttribute("href");
-        window.scrollTo({
-            top: document.querySelector(targetId),
-            behavior: "smooth"
-        });
     }
 buildNav();
 
